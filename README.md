@@ -23,24 +23,11 @@ Inspiration: 🔗 [McGill Physics Hackathon](https://www.hackathon.physics.mcgil
 ---
 
 ## Sign-Up
+Submit your own project idea: 🔗 [Here](https://docs.google.com/forms/d/1QO6AnPEtea8cxU11bRS94la4Ck1epgBNHmLYfcb2ZQY/edit)
 
-There are **two ways** to sign up — you only need to fill out **one** of them.
-
-### Initial Proposal Form *(before the event)*
-Submit your own project idea:
 - **Name**
 - **Proposal** — a paragraph describing the physics process you want to model (link a Wikipedia page or article) and how you plan to display/simulate it. It's fine to be vague!
 - **Participants** — who / how many people you'd like to work with
-
-🔗 *Form link: TBA*
-
-### Day-Of Sign-Up Form *(at the kickoff)*
-Don't have an idea? No problem.
-- **Name**
-- **Select a proposal** from the list (student proposals + a few provided by organizers)
-- **Participants**
-
-🔗 *Form link: TBA*
 
 ### Teams
 - Solo participants and groups are both welcome.
