@@ -1,0 +1,20 @@
+# Ilmarinen Light Polarization Visualizer
+
+## Team Member List
+- Matvei (Matthew) Karp
+
+## Build Instructions
+1. Go to [the website for the java version of Processing](https://processing.org/download) and download the version for your device.
+2. Ensure you have the entirety of this folder on your device.
+3. Launch Processing.
+4. In Processing, open the **File** menu on the top left, select **Open**, and navigate to the folder containing this project. Select and open any one of the `.pde` files. Close the empty sketch created when you opened Processing.
+5. In the Processing window, press the **Run** button (the play-style triangle).
+
+## Operations Manual
+- Default State: The simulator launches with a red laser beam shining across and fully illuminating the target. The Jones vector of the light (which is in a diagonal linear polarization) is displayed above the beam, and the percent intensity of the beam is displayed underneath.
+- Adding Polarizers: Pressing the **+** button at the center of the beam will inset a polarizer, which will default to a horizontal linear polarizer. This will cause the light beam to be split into a section before the polarizer and a section afterwards, with the brightness of each determined by its percent intensity and with each displaying its Jones Vector and intensity, and containing a **+** button. Up to 5 polarizers can be added in this way.
+- Removing Polarizers: Each polarizer has a **Remove** button over it, which will remove it.
+- Polarizer Display Modes: By default, polarizers are displayed as simple rings that show the angle $\theta$, but for more detail, the button in the top left allows you to toggle into Matrix mode, which will replace the rings with the calculated Jones Matrices of the polarizers.
+- Sliders: Each polarizer has several sliders, which are set up to allow the user to input any values, though they will snap to popular values. These sliders are for $p_1$ and $p_2$ (from $0$ to $1$ in increments of $0.01$ with preference for $\[0, 0.25, 0.50, 0.75, 1\]$), and for $\phi_1$,$\phi_2$, and $\theta$ (from $0$ to $360$, in increments of $1$ with preference for $\[0,30,45,60,90,120,135,150,180,210,225,240,270,300,315,330,360\]$). Changing these sliders will edit the properties of the polarizer. For a more detailed look into this see the [***Math*** Section](#math).
+
+## Math  
