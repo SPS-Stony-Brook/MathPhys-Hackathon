@@ -44,7 +44,7 @@ $$\frac{1}{2} \begin{bmatrix} (p_1 e^{i\phi_1} + p_2 e^{i\phi_2}) + (p_1 e^{i\ph
 
 This implementation allows one to simulate:
 
-| Option | $p_1$ | $\phi1$ | $p_2$ | $\ph21$ | $\theta$ |
+| Option | $p_1$ | $\phi1$ | $p_2$ | $\phi2$ | $\theta$ |
 | ;---; | :---; | :---: | ;---: | :---: | ;---: |
 | Empty | 1 | 0 | 1 | 0 | 0 |
 | Shutter | 0 | 0 | 0 | 0 | 0 |
