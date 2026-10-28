@@ -29,7 +29,7 @@ $$\begin{bmatrix} \frac{1}{\sqrt{2}}e^{i\*0} \\ \frac{1}{\sqrt{2}}e^{i\*0} \end{
 
 The formula for intensity is:
 
-$$I = \sqrt{(p_1e^{i\phi_1})^2+(p_2e^{i\phi_2})^2}$$
+$$I = \sqrt{||(p_1e^{i\phi_1})||^2+||(p_2e^{i\phi_2})||^2}=\sqrt{\begin{bmatrix} p_1e^{i\phi_1} \\ p_2e^{i\phi_2} \end{bmatrix}^\dagger\begin{bmatrix} p_1e^{i\phi_1} \\ p_2e^{i\phi_2} \end{bmatrix}}$$
 
 Polarizers and Waveplates are all described using Jones Matrices. This project is limited to those polarizers which do not involve any cross talk between the components of the light, and as such takes the form:
 $$ \begin{bmatrix} p_1 e^{i\phi_1} & 0 \\ 0 & p_2 e^{i\phi_2} \end{bmatrix}$$
@@ -56,6 +56,6 @@ This implementation allows one to simulate:
 | Half-Wave Plate | 1 | 0 | 1 | 180 | 0 |
 | Quarter-Wave Plate | 1 | 0 | 1 | 90 | 0 |
 
-The light vector $\bar{v_1}$ is calculated as $J(\theta)\bar{v_0}$, sequenced from $\bar{v_0}, one polarizer at a time to the right.
+The light vector $\bar{v_1}$ is calculated as $J(\theta)\bar{v_0}$, sequenced from $\bar{v_0}, one polarizer at a time moving away from the laser (to the right on the demo, though the resulting matrices will thus be further and further to the left).
 
 ## Credits
