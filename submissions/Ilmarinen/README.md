@@ -15,8 +15,45 @@
 - Adding Polarizers: Pressing the **+** button at the center of the beam will inset a polarizer, which will default to a horizontal linear polarizer. This will cause the light beam to be split into a section before the polarizer and a section afterwards, with the brightness of each determined by its percent intensity and with each displaying its Jones Vector and intensity, and containing a **+** button. Up to 5 polarizers can be added in this way.
 - Removing Polarizers: Each polarizer has a **Remove** button over it, which will remove it.
 - Polarizer Display Modes: By default, polarizers are displayed as simple rings that show the angle $\theta$, but for more detail, the button in the top left allows you to toggle into Matrix mode, which will replace the rings with the calculated Jones Matrices of the polarizers.
-- Sliders: Each polarizer has several sliders, which are set up to allow the user to input any values, though they will snap to popular values. These sliders are for $p_1$ and $p_2$ (from $0$ to $1$ in increments of $0.01$ with preference for $\[0, 0.25, 0.50, 0.75, 1\]$), and for $\phi_1$, $\phi_2$, and $\theta$ (from $0$ to $360$, in increments of $1$ with preference for $\[0,30,45,60,90,120,135,150,180,210,225,240,270,300,315,330,360\]$). Changing these sliders will edit the properties of the polarizer. For a more detailed look into this see the [***Math*** Section](#math).
+- Sliders: Each polarizer has several sliders, which are set up to allow the user to input any values, though they will snap to popular values. Click on the handle twice to activate. These sliders are for $p_1$ and $p_2$ (from $0$ to $1$ in increments of $0.01$ with preference for $\[0, 0.25, 0.50, 0.75, 1\]$), and for $\phi_1$, $\phi_2$, and $\theta$ (from $0$ to $360$, in increments of $1$ with preference for $\[0,30,45,60,90,120,135,150,180,210,225,240,270,300,315,330,360\]$). Changing these sliders will edit the properties of the polarizer. For a more detailed look into this see the [***Math*** Section](#math).
 
 ## Math  
 ### Intro to Jones Calculus
-Jones calculus is a method for describing the behavior of fully polarized light in free space. In particular, Jones Vectors describe the electric field of the light in two orthonormal components orthogonal to the direction of motion. Each component is a complex value, which can be shown as $pe^{i\phi}$, where $p$ is the amplitude of the electric field and $\phi$ is the phase. 
+Jones calculus is a method for describing the behavior of fully polarized light in free space. In particular, Jones Vectors describe the electric field of the light in two orthogonal components orthogonal to the direction of motion. Each component is a complex value, which can be shown as $pe^{i\phi}$, where $p$ is the amplitude of the electric field and $\phi$ is the phase. The full Jones Vector thus looks like:
+
+$$\begin{bmatrix} p_1e^{i\phi_1} \\ p_2e^{i\phi_2} \end{bmatrix}$$
+
+The starting light vector is:
+
+$$\begin{bmatrix} \frac{1}{\sqrt{2}}e^{i\*0} \\ \frac{1}{\sqrt{2}}e^{i\*0} \end{bmatrix}=\begin{bmatrix} \frac{1}{\sqrt{2}}+0i \\ \frac{1}{\sqrt{2}}+0i \end{bmatrix}$$
+
+The formula for intensity is:
+
+$$I = \sqrt{(p_1e^{i\phi_1})^2+(p_2e^{i\phi_2})^2}$$
+
+Polarizers and Waveplates are all described using Jones Matrices. This project is limited to those polarizers which do not involve any cross talk between the components of the light, and as such takes the form:
+$$ \begin{bmatrix} p_1 e^{i\phi_1} & 0 \\ 0 & p_2 e^{i\phi_2} \end{bmatrix}$$
+
+The project allows these matrices to be rotated around the axis of motion:
+
+$$\begin{bmatrix} \cos\theta & -\sin\theta \\ \sin\theta & \cos\theta \end{bmatrix} \begin{bmatrix} p_1 e^{i\phi_1} & 0 \\ 0 & p_2 e^{i\phi_2} \end{bmatrix} \begin{bmatrix} \cos\theta & \sin\theta \\ -\sin\theta & \cos\theta \end{bmatrix} = \begin{bmatrix} p_1 e^{i\phi_1}\cos^2\theta + p_2 e^{i\phi_2}\sin^2\theta & (p_1 e^{i\phi_1} - p_2 e^{i\phi_2})\sin\theta\cos\theta \\ (p_1 e^{i\phi_1} - p_2 e^{i\phi_2})\sin\theta\cos\theta & p_1 e^{i\phi_1}\sin^2\theta + p_2 e^{i\phi_2}\cos^2\theta \end{bmatrix}$$
+
+For implementation reasons, this is implemented as:
+
+$$\frac{1}{2} \begin{bmatrix} (p_1 e^{i\phi_1} + p_2 e^{i\phi_2}) + (p_1 e^{i\phi_1} - p_2 e^{i\phi_2})\cos(2\theta) & (p_1 e^{i\phi_1} - p_2 e^{i\phi_2})\sin(2\theta) \\ (p_1 e^{i\phi_1} - p_2 e^{i\phi_2})\sin(2\theta) & (p_1 e^{i\phi_1} + p_2 e^{i\phi_2}) - (p_1 e^{i\phi_1} - p_2 e^{i\phi_2})\cos(2\theta) \end{bmatrix}$$
+
+This implementation allows one to simulate:
+
+| Option | $p_1$ | $\phi1$ | $p_2$ | $\ph21$ | $\theta$ |
+| ;---; | :---; | :---: | ;---: | :---: | ;---: |
+| Empty | 1 | 0 | 1 | 0 | 0 |
+| Shutter | 0 | 0 | 0 | 0 | 0 |
+| Neutral Density Filter | 0.5 | 0 | 0.5 | 0 | 0 |
+| Linear Horizontal Polarizer | 1 | 0 | 0 | 0 | 0 |
+| Linear Diagonal Polarizer | 1 | 0 | 0 | 0 | 45 |
+| Linear Vertical Polarizer | 1 | 0 | 0 | 0 | 90 |
+| Linear Vertical Polarizer | 0 | 0 | 1 | 0 | 0 |
+| Half-Wave Plate | 1 | 0 | 1 | 180 | 0 |
+| Quarter-Wave Plate | 1 | 0 | 1 | 90 | 0 |
+
+The light vector $\bar{v_1}$ is calculated as $J(\theta)\bar{v_0}$, sequenced from $\bar{v_0}, one polarizer at a time to the right.
