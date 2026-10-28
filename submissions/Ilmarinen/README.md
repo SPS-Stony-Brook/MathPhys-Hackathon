@@ -36,7 +36,7 @@ $$ \begin{bmatrix} p_1 e^{i\phi_1} & 0 \\\\ 0 & p_2 e^{i\phi_2} \end{bmatrix}$$
 
 The project allows these matrices to be rotated around the axis of motion:
 
-$$\begin{bmatrix} \cos\theta & -\sin\theta \\\\ \sin\theta & \cos\theta \end{bmatrix} \begin{bmatrix} p_1 e^{i\phi_1} & 0 \\\\ 0 & p_2 e^{i\phi_2} \end{bmatrix} \begin{bmatrix} \cos\theta & \sin\theta \\ -\sin\theta & \cos\theta \end{bmatrix} = \begin{bmatrix} p_1 e^{i\phi_1}\cos^2\theta + p_2 e^{i\phi_2}\sin^2\theta & (p_1 e^{i\phi_1} - p_2 e^{i\phi_2})\sin\theta\cos\theta \\\\ (p_1 e^{i\phi_1} - p_2 e^{i\phi_2})\sin\theta\cos\theta & p_1 e^{i\phi_1}\sin^2\theta + p_2 e^{i\phi_2}\cos^2\theta \end{bmatrix}$$
+$$\begin{bmatrix} \cos\theta & -\sin\theta \\\\ \sin\theta & \cos\theta \end{bmatrix} \begin{bmatrix} p_1 e^{i\phi_1} & 0 \\\\ 0 & p_2 e^{i\phi_2} \end{bmatrix} \begin{bmatrix} \cos\theta & \sin\theta \\\\ -\sin\theta & \cos\theta \end{bmatrix} = \begin{bmatrix} p_1 e^{i\phi_1}\cos^2\theta + p_2 e^{i\phi_2}\sin^2\theta & (p_1 e^{i\phi_1} - p_2 e^{i\phi_2})\sin\theta\cos\theta \\\\ (p_1 e^{i\phi_1} - p_2 e^{i\phi_2})\sin\theta\cos\theta & p_1 e^{i\phi_1}\sin^2\theta + p_2 e^{i\phi_2}\cos^2\theta \end{bmatrix}$$
 
 For implementation reasons, this is implemented as:
 
