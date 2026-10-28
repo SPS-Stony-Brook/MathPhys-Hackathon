@@ -59,3 +59,8 @@ This implementation allows one to simulate:
 The light vector $\bar{v_1}$ is calculated as $J(\theta)\bar{v_0}$, sequenced from $\bar{v_0}, one polarizer at a time moving away from the laser (to the right on the demo, though the resulting matrices will thus be further and further to the left).
 
 ## Credits
+Matthew Karp (from prior project): Approximately half of the Complex.java class originates from my QCsim project from a few years back, with new functions added.
+Rachel Uvaydov (former classmate): The majority of the button class comes from my APCSA final project, KanteleQuest, and the Button class was mostly made by my project partner, Rachel. A few features were added by me.
+Various StackOverflow posts, initially [this one](https://stackoverflow.com/questions/72313759/making-a-discrete-slider-using-processing): Significant inspiration and some code segments for the Slider class.
+Google search AI overview: Some minor bug fixing/syntax error help while trying to search for issues
+(Wikipedia)[https://en.wikipedia.org/wiki/Jones_calculus]: Primary source for trying to understand the math I was implementing.
