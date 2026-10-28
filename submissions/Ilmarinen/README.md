@@ -21,26 +21,26 @@
 ### Intro to Jones Calculus
 Jones calculus is a method for describing the behavior of fully polarized light in free space. In particular, Jones Vectors describe the electric field of the light in two orthogonal components orthogonal to the direction of motion. Each component is a complex value, which can be shown as $pe^{i\phi}$, where $p$ is the amplitude of the electric field and $\phi$ is the phase. The full Jones Vector thus looks like:
 
-$$\begin{bmatrix} p_1e^{i\phi_1} \\ p_2e^{i\phi_2} \end{bmatrix}$$
+$$\begin{bmatrix} p_1e^{i\phi_1} \\\\ p_2e^{i\phi_2} \end{bmatrix}$$
 
 The starting light vector is:
 
-$$\begin{bmatrix} \frac{1}{\sqrt{2}}e^{i\*0} \\ \frac{1}{\sqrt{2}}e^{i\*0} \end{bmatrix}=\begin{bmatrix} \frac{1}{\sqrt{2}}+0i \\ \frac{1}{\sqrt{2}}+0i \end{bmatrix}$$
+$$\begin{bmatrix} \frac{1}{\sqrt{2}}e^{i\*0} \\\\ \frac{1}{\sqrt{2}}e^{i\*0} \end{bmatrix}=\begin{bmatrix} \frac{1}{\sqrt{2}}+0i \\\\ \frac{1}{\sqrt{2}}+0i \end{bmatrix}$$
 
 The formula for intensity is:
 
-$$I = \sqrt{||(p_1e^{i\phi_1})||^2+||(p_2e^{i\phi_2})||^2}=\sqrt{\begin{bmatrix} p_1e^{i\phi_1} \\ p_2e^{i\phi_2} \end{bmatrix}^\dagger\begin{bmatrix} p_1e^{i\phi_1} \\ p_2e^{i\phi_2} \end{bmatrix}}$$
+$$I = \sqrt{|(p_1e^{i\phi_1})|^2+|(p_2e^{i\phi_2})|^2}=\sqrt{\begin{bmatrix} p_1e^{i\phi_1} \\\\ p_2e^{i\phi_2} \end{bmatrix}^\dagger\begin{bmatrix} p_1e^{i\phi_1} \\\\ p_2e^{i\phi_2} \end{bmatrix}}$$
 
 Polarizers and Waveplates are all described using Jones Matrices. This project is limited to those polarizers which do not involve any cross talk between the components of the light, and as such takes the form:
-$$ \begin{bmatrix} p_1 e^{i\phi_1} & 0 \\ 0 & p_2 e^{i\phi_2} \end{bmatrix}$$
+$$ \begin{bmatrix} p_1 e^{i\phi_1} & 0 \\\\ 0 & p_2 e^{i\phi_2} \end{bmatrix}$$
 
 The project allows these matrices to be rotated around the axis of motion:
 
-$$\begin{bmatrix} \cos\theta & -\sin\theta \\ \sin\theta & \cos\theta \end{bmatrix} \begin{bmatrix} p_1 e^{i\phi_1} & 0 \\ 0 & p_2 e^{i\phi_2} \end{bmatrix} \begin{bmatrix} \cos\theta & \sin\theta \\ -\sin\theta & \cos\theta \end{bmatrix} = \begin{bmatrix} p_1 e^{i\phi_1}\cos^2\theta + p_2 e^{i\phi_2}\sin^2\theta & (p_1 e^{i\phi_1} - p_2 e^{i\phi_2})\sin\theta\cos\theta \\ (p_1 e^{i\phi_1} - p_2 e^{i\phi_2})\sin\theta\cos\theta & p_1 e^{i\phi_1}\sin^2\theta + p_2 e^{i\phi_2}\cos^2\theta \end{bmatrix}$$
+$$\begin{bmatrix} \cos\theta & -\sin\theta \\\\ \sin\theta & \cos\theta \end{bmatrix} \begin{bmatrix} p_1 e^{i\phi_1} & 0 \\\\ 0 & p_2 e^{i\phi_2} \end{bmatrix} \begin{bmatrix} \cos\theta & \sin\theta \\ -\sin\theta & \cos\theta \end{bmatrix} = \begin{bmatrix} p_1 e^{i\phi_1}\cos^2\theta + p_2 e^{i\phi_2}\sin^2\theta & (p_1 e^{i\phi_1} - p_2 e^{i\phi_2})\sin\theta\cos\theta \\\\ (p_1 e^{i\phi_1} - p_2 e^{i\phi_2})\sin\theta\cos\theta & p_1 e^{i\phi_1}\sin^2\theta + p_2 e^{i\phi_2}\cos^2\theta \end{bmatrix}$$
 
 For implementation reasons, this is implemented as:
 
-$$\frac{1}{2} \begin{bmatrix} (p_1 e^{i\phi_1} + p_2 e^{i\phi_2}) + (p_1 e^{i\phi_1} - p_2 e^{i\phi_2})\cos(2\theta) & (p_1 e^{i\phi_1} - p_2 e^{i\phi_2})\sin(2\theta) \\ (p_1 e^{i\phi_1} - p_2 e^{i\phi_2})\sin(2\theta) & (p_1 e^{i\phi_1} + p_2 e^{i\phi_2}) - (p_1 e^{i\phi_1} - p_2 e^{i\phi_2})\cos(2\theta) \end{bmatrix}$$
+$$\frac{1}{2} \begin{bmatrix} (p_1 e^{i\phi_1} + p_2 e^{i\phi_2}) + (p_1 e^{i\phi_1} - p_2 e^{i\phi_2})\cos(2\theta) & (p_1 e^{i\phi_1} - p_2 e^{i\phi_2})\sin(2\theta) \\\\ (p_1 e^{i\phi_1} - p_2 e^{i\phi_2})\sin(2\theta) & (p_1 e^{i\phi_1} + p_2 e^{i\phi_2}) - (p_1 e^{i\phi_1} - p_2 e^{i\phi_2})\cos(2\theta) \end{bmatrix}$$
 
 This implementation allows one to simulate:
 
