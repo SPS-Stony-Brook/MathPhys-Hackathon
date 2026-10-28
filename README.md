@@ -1,123 +1,62 @@
-# 🧪 MathPhys Hackathon 2026 ⚛️
+# Project: Standing Waves and Chladni Plates
+## James Flynn, Grey Nakhwa, Vedant Gosavi, Rayat Islam
 
-**Hosted by SPS & SIAM at Stony Brook University**
+## Execution
 
-> Simulate it. Visualize it. Explain it. 🎨📈
+### Requirements
+- Python 3.13
+- The packages listed in `requirements.txt`
 
-The theme this year is **visualization and simulation of a physical process**. Pick a piece of physics, build something that brings it to life, and be ready to explain how it works under the hood.
+### Setup and Run
 
-Inspiration: 🔗 [McGill Physics Hackathon](https://www.hackathon.physics.mcgill.ca/)
+From the project directory, create and activate a virtual environment:
 
----
-
-## Key Dates
-
-| Event | When |
-|---|---|
-| 🚀 Kickoff / Initiation Event (SPS) | **Tuesday, Oct 20 — 6:30 PM** |
-| 🛠️ Workshop + Office Hours | **Friday, Oct 23 — 10 AM to 3 PM** |
-| 🏁 Final Submissions Due / Judging Event (SIAM) | **Wednesday, Oct 28 — 7:00 PM** |
-
-⚠️ No new group sign-ups are accepted after the kickoff event.
-
----
-
-## Sign-Up
-Submit your own project idea: 🔗 [Here](https://docs.google.com/forms/d/1QO6AnPEtea8cxU11bRS94la4Ck1epgBNHmLYfcb2ZQY/edit)
-
-- **Name**
-- **Proposal** — a paragraph describing the physics process you want to model (link a Wikipedia page or article) and how you plan to display/simulate it. It's fine to be vague!
-- **Participants** — who / how many people you'd like to work with
-
-### Teams
-- Solo participants and groups are both welcome.
-- Recommended group size: **2–3 people**.
-- At the kickoff, we'll go through all submitted proposals and help people find teammates. Organizers will have extra projects ready if there are more people than proposals.
-
----
-
-## Proposals
-
-Your project should **simulate and/or visualize a physical process**. There's no restriction on tools or medium — a script, a web app, an interactive sim, a rendered video — anything goes, as long as you can explain how it works.
-
-Organizers will review all proposals before acceptance. This is a light check, mainly to:
-- make sure projects fit the theme, and
-- let you know if a similar proposal has already been submitted.
-
-Multiple groups *can* work on the same idea independently, but we'd love a wide variety of projects at the showcase!
-
-### ✨ Example Ideas
-- Simulation of **Bremsstrahlung radiation** with an interactive detector
-- A color-picker-style **phase portrait visualizer** + numerical solutions of differential equations
-- …and almost endless possibilities for visualizing diff-eqs 🌀
-
----
-
-## Rules
-
-- You'll have **one week** (Oct 20 → Oct 28) to work on your project at home.
-- Your final submission **must include a working simulation with some form of visualization** — anything from a plot of a known solution to a fully interactive [PhET](https://phet.colorado.edu/)-style simulation.
-- On judging day you'll need to show **detailed understanding** of:
-  - the physics topic and your proposal
-  - your solution method and any analysis algorithms
-  - your visualizer
-- Submissions are accepted up until the **start of the judging event**.
-
----
-
-## AI & External Code Policy
-
-- ✅ **AI use is allowed** — but it must be **credited**.
-- ✅ **External code** (e.g. an algorithm from Stack Exchange) is allowed — credit the original author(s) within your project.
-- ✅ **Any language** is allowed, as long as you can build it and explain it.
-- ❗ Every team member must be able to demonstrate a **fundamental understanding** of their project and answer questions about any part of its design, physics, or visualization.
-
-In short: use whatever tools you like, but you need to *own* what you submit. 🧠
-
----
-
-## Submission
-
-1. **Fork** this repository ([new to git?](https://docs.github.com/en/get-started/quickstart/fork-a-repo))
-2. Add your project in its own folder under [`submissions/`](./submissions)
-3. Include a `README.md` in your folder with:
-   - project title and team members
-   - a short explanation of the physics and how your simulation works
-   - **build/run instructions** (at minimum for Unix systems)
-   - credits for any AI tools or external code used
-4. Open a **Pull Request** to this repo
-
-Stuck? Email us at 📧 **sps.sbu@gmail.com**
-
-Suggested layout:
-```
-submissions/
-└── your-team-name/
-    ├── README.md
-    ├── src/
-    └── ...
+**Windows (PowerShell):**
+```powershell
+py -3.13 -m venv .venv
+.\.venv\Scripts\Activate.ps1
 ```
 
----
+**macOS / Linux:**
+```bash
+python3.13 -m venv .venv
+source .venv/bin/activate
+```
 
-## Judging
+Install the dependencies and launch the simulation:
 
-Each team will give a **5–10 minute presentation**, followed by **3–5 minutes of Q&A** from the judges and audience.
+```bash
+python -m pip install -r requirements.txt
+python Chladni_Complete_v2.py
+```
 
-### Categories
-| Category | What we're looking for |
-|---|---|
-| 🎨 **Most Creative** | Most novel or artistically appealing |
-| 📚 **Best Educational Aid** | Most intuitive explanation of the physical process |
-| ⚙️ **Technical Prowess** | Efficient or novel approach to simulating the process |
+The simulation opens in a window. Select one of the three simulations from the title screen.
 
-### Prizes 🎁
-Merch, candy, stickers, and bragging rights!
 
----
+## Contents:
+    - A simulation to demonstrate how reflections and interference result in a standing wave for 1D
+    - A color map showing the maximum amplitudes of a 2D standing wave
+    - An accurate simulation of Chladni Plates complete with randomly moving "sand" particles
 
-## 📬 Contact
+## Goal
+    The goal of this project is to develop an intuitive understanding of how standing waves arise and behave. The 1D simulation is a simple case of interfering (summing) sine waves, but 2D standing waves are far more complicated.
 
-Questions? Reach out at **sps.sbu@gmail.com** or find us at the workshop on Friday, Oct 23.
+## Theory
+    The frequency of the wave source and properties of the medium like suface tension and mass density combine and give rise to two vibrational modes, n and m. These modes are ultimately what give rise to a specific pattern, which is why changing the frequency changes the pattern on the plate.This means we can ignore almost every physical property.
 
-Happy hacking! 🚀
+    The function for a standing wave in 2D is:
+    $\psi(x,y,t) = A(cos(\frac{m \pi x}{L})cos(\frac{n\pi y}{L})+cos(\frac{n \pi x}{L})cos(\frac{m \pi y}{L}))cos(\omega t)$
+
+    A = Amplitude
+    L = Boundary/Wall
+    n,m = modes
+    $\omega$ = frequency
+
+## Execution:
+    For the gradient map, we simply inptted the maximum value of $\psi$ into a colormap
+    For the plate simulation, we efficiently generated 10,000 "particles" of sand, and had them move in a random direction with with magnitude equal to the value of the wavefunction. This led to the sand slowly settling around the antinode curves, as they do in real life.
+
+## Works Consulted:
+    For the physical properties of standing waves: https://davidmorin.physics.fas.harvard.edu/sites/g/files/omnuum12331/files/2025-10/waves_miscellaneous.pdf
+    For the formula used to compute 2D patterns: https://phys.libretexts.org/Bookshelves/Waves_and_Acoustics/The_Physics_of_Waves_(Goergi)/11%3A_Two_and_Three_Dimensions/11.03%3A_Chladni_Plates
+
